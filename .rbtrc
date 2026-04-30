@@ -35,3 +35,12 @@ dev run:dist --mcp-frontend-host=""
 
 # When expunging, expunge that state we've saved.
 dev expunge --application-name=newhire
+
+# -------- Production (`rbt serve run --config=production`) --------
+# Used by the Railway Docker image. Listens on $PORT (or --port=...).
+# TLS=external because Railway terminates TLS at its edge.
+serve run:production --python
+serve run:production --application=backend/src/main.py
+serve run:production --application-name=newhire
+serve run:production --tls=external
+

@@ -1,0 +1,31 @@
+# --- Heavy / regenerated dirs ---
+.venv/
+node_modules/
+web/node_modules/
+web/dist/
+.rbt/
+backend/api/
+web/api/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+
+# --- Git / OS ---
+.git/
+.gitignore
+.DS_Store
+*.swp
+
+# --- Local env ---
+.env
+.env.*
+!.env.example
+
+# --- Editor configs ---
+.idea/
+.vscode/
+.claude/
