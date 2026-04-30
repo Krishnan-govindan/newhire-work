@@ -1,0 +1,39 @@
+{
+  "name": "NewHire-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:profile": "vite build --mode profile",
+    "build:watch:profile": "vite build --mode profile --watch",
+    "build": "tsc --noEmit && npm run build:profile",
+    "build:watch": "concurrently \"npm:build:watch:*\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "1.5.0",
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "@reboot-dev/reboot-react": "1.0.4",
+    "@reboot-dev/reboot-api": "1.0.4",
+    "@xyflow/react": "^12.3.5",
+    "@dicebear/core": "^9.2.2",
+    "@dicebear/collection": "^9.2.2",
+    "framer-motion": "^11.11.0",
+    "dagre": "^0.8.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "@types/dagre": "^0.7.52",
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.9.2",
+    "vite": "^6.3.5",
+    "vite-plugin-singlefile": "^2.0.3"
+  }
+}

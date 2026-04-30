@@ -1,0 +1,513 @@
+/* ---------- root ---------- */
+
+.root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  overflow: hidden;
+}
+
+/* ---------- header ---------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-dark) 0%,
+    var(--color-bg) 100%
+  );
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.logo span {
+  color: var(--color-purple);
+}
+
+.pitch {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.welcome {
+  font-size: 11px;
+  color: var(--color-yellow);
+  max-width: 260px;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.headerStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.statValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.statLabel {
+  font-size: 9px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- canvas ---------- */
+
+.canvasWrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.canvasWrap :global(.react-flow) {
+  background: var(--color-bg);
+}
+
+.flowControls {
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.flowControls :global(button) {
+  background: var(--color-bg-dark) !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.flowControls :global(button:hover) {
+  background: var(--color-border) !important;
+}
+
+/* ---------- nodes ---------- */
+
+.handleHidden {
+  opacity: 0;
+  pointer-events: none;
+  width: 1px !important;
+  height: 1px !important;
+}
+
+.employeeCard {
+  width: 260px;
+  padding: 18px 18px 16px;
+  background: linear-gradient(
+    145deg,
+    var(--color-bg-dark) 0%,
+    #1f1f35 100%
+  );
+  border: 1.5px solid var(--color-purple);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(167, 139, 250, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--color-purple);
+}
+
+.employeeName {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.employeeRole {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ---------- skill nodes ---------- */
+
+.skillCard {
+  width: 220px;
+  min-height: 100px;
+  padding: 12px 14px;
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-blue);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.skillCard:hover {
+  border-color: var(--color-blue);
+  box-shadow: 0 4px 16px rgba(96, 165, 250, 0.2);
+  transform: translateY(-1px);
+}
+
+.skillCard.expanded {
+  border-left-color: var(--color-purple);
+  cursor: default;
+}
+
+.skillName {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.skillDesc {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.expandHint {
+  margin-top: auto;
+  font-size: 9px;
+  color: var(--color-blue);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.loadingPill {
+  margin-top: auto;
+  font-size: 9px;
+  color: var(--color-yellow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ---------- task nodes ---------- */
+
+.taskCard {
+  width: 220px;
+  min-height: 100px;
+  padding: 12px 14px;
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.taskAtomic {
+  border-left: 3px solid var(--color-green);
+}
+
+.taskComposite {
+  border-left: 3px solid var(--color-orange);
+}
+
+.taskCard:hover {
+  box-shadow: 0 4px 16px rgba(74, 222, 128, 0.18);
+  transform: translateY(-1px);
+}
+
+.taskComplete {
+  opacity: 0.65;
+}
+
+.taskHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.taskDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-green);
+  flex-shrink: 0;
+}
+
+.taskComposite .taskDot {
+  background: var(--color-orange);
+}
+
+.taskComplete .taskDot {
+  background: var(--color-text-muted);
+}
+
+.taskName {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.taskDesc {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.taskAction {
+  margin-top: auto;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-green);
+}
+
+.taskComposite .taskAction {
+  color: var(--color-orange);
+}
+
+.taskComplete .taskAction {
+  color: var(--color-text-muted);
+}
+
+/* ---------- loading screen ---------- */
+
+.loadingScreen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+.loadingPulse {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+/* ---------- chat sheet ---------- */
+
+.sheetBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.sheet {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(520px, 100vw);
+  background: var(--color-bg-dark);
+  border-left: 1px solid var(--color-border);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.sheetHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--color-border);
+  gap: 12px;
+}
+
+.sheetTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.sheetSubtitle {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.sheetClose {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 6px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sheetClose:hover {
+  color: var(--color-text);
+}
+
+.sheetBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  overflow-y: auto;
+}
+
+.sheetLabel {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.sheetTextarea {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.sheetTextarea:focus {
+  outline: none;
+  border-color: var(--color-purple);
+}
+
+.sheetRunBtn {
+  background: var(--color-green);
+  color: var(--color-bg-dark);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.sheetRunBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sheetStatus {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.sheetOutput {
+  flex: 1;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--color-text);
+  overflow-y: auto;
+}
+
+.sheetOutput :global(h1),
+.sheetOutput :global(h2),
+.sheetOutput :global(h3) {
+  margin: 14px 0 6px;
+  color: var(--color-purple);
+  font-size: 13px;
+}
+
+.sheetOutput :global(h3) {
+  color: var(--color-blue);
+}
+
+.sheetOutput :global(p) {
+  margin: 6px 0;
+}
+
+.sheetOutput :global(ul),
+.sheetOutput :global(ol) {
+  margin: 6px 0;
+  padding-left: 20px;
+}
+
+.sheetOutput :global(li) {
+  margin: 3px 0;
+}
+
+.sheetOutput :global(code) {
+  background: var(--color-bg-dark);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.sheetOutput :global(pre) {
+  background: var(--color-bg-dark);
+  padding: 10px 12px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.sheetOutput :global(strong) {
+  color: var(--color-yellow);
+}
